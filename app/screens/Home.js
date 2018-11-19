@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+// to use class component, need to import it from react
 import { StatusBar } from 'react-native'
 
+// in lessson, seperates out custom built components from 
+// the react based ones by double spacing before writing.
 import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
 import { InputWithButton } from '../components/TextInput'
