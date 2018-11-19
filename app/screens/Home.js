@@ -14,13 +14,26 @@ const TEMP_BASE_PRICE = '100';
 const TEMP_QUOTE_ORICE = '79.74';
 
 class Home extends Component {
+    handlePressBaseCurrency = () => {
+        console.log('press base');
+    }
+
+    handlePressBaseQuoteCurrency = () => {
+        console.log('press quote');
+    }
+
     render() {
         return (
             <Container>
                 <StatusBar translucent={false} barStyle="light-content" />
                 <Logo />
-                <InputWithButton/>
                 <InputWithButton
+                    buttonText={TEMP_BASE_CURRENCY}
+                    onPress={this.hanldePressBaseCurrency}
+                />
+                <InputWithButton
+                    onPress={this.handlePressBaseQuoteCurrency}
+                    buttonText={TEMP_QUOTE_CURRENCY}
                     editable={false}
                 />
             </Container>
