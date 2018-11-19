@@ -8,6 +8,11 @@ import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
 import { InputWithButton } from '../components/TextInput'
 
+const TEMP_BASE_CURRENCY = 'USD';
+const TEMP_QUOTE_CURRENCY = 'GBP';
+const TEMP_BASE_PRICE = '100';
+const TEMP_QUOTE_ORICE = '79.74';
+
 class Home extends Component {
     render() {
         return (
