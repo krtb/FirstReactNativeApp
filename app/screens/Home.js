@@ -4,10 +4,11 @@ import { StatusBar } from 'react-native'
 
 // in lessson, seperates out custom built components from 
 // the react based ones by double spacing before writing.
-import { Container } from '../components/Container'
-import { Logo } from '../components/Logo'
-import { InputWithButton } from '../components/TextInput'
-import { ClearButton } from '../components/Buttons'
+import { Container } from '../components/Container';
+import { Logo } from '../components/Logo';
+import { InputWithButton } from '../components/TextInput';
+import { ClearButton } from '../components/Buttons';
+import { LastConverted } from '../components/Text';
 
 const TEMP_BASE_CURRENCY = 'USD';
 const TEMP_QUOTE_CURRENCY = 'GBP';
@@ -50,6 +51,12 @@ class Home extends Component {
                     buttonText={TEMP_QUOTE_CURRENCY}
                     editable={false}
                     value={TEMP_QUOTE_PRICE}
+                />
+                <LastConverted
+                    base={TEMP_BASE_CURRENCY}
+                    quote={TEMP_QUOTE_CURRENCY}
+                    date={TEMP_CONVERSION_DATE}
+                    conversionRate={TEMP_CONVERSION_RATE}
                 />
                 <ClearButton
                     text="Reverse Currencies"
