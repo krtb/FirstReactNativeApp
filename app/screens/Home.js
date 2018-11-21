@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // to use class component, need to import it from react
-import { StatusBar } from 'react-native'
+import { StatusBar, KeyboardAvoidingView } from 'react-native'
 
 // in lessson, seperates out custom built components from 
 // the react based ones by double spacing before writing.
@@ -46,6 +46,7 @@ class Home extends Component {
                 <Header 
                   onPress={this.handleOptionPress}  
                 />
+                <KeyboardAvoidingView behavior="padding" >
                 <Logo />
                 <InputWithButton
                     buttonText={TEMP_BASE_CURRENCY}
@@ -70,6 +71,7 @@ class Home extends Component {
                     text="Reverse Currencies"
                     onPress={this.handleSwapCurrency}
                 />
+                </KeyboardAvoidingView>
             </Container>
         );
     }
