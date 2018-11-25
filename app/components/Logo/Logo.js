@@ -16,6 +16,7 @@ class Logo extends Component {
 
     keyboardShow = () => {
         console.log('keyboard did show')
+        // keyboard show is not working and eneed to investigate further
     }
     
     keyboardHide = () => {
