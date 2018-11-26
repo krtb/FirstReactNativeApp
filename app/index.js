@@ -1,7 +1,8 @@
 import React from 'react';
-import Home from './screens/Home';
-// need to install this package!
 import EStyleSheet from 'react-native-extended-stylesheet'
+
+// need to install this package!
+import CurrencyList from './screens/CurrencyList';
 
 // here is where global styles are contained
 EStyleSheet.build({
@@ -12,4 +13,4 @@ EStyleSheet.build({
     $lightGray: '#F0F0F0',
 });
 
-export default () => <Home/>
+export default () => <CurrencyList />;
