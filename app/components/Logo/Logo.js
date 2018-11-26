@@ -23,6 +23,9 @@ class Logo extends Component {
     }
 
     componentDidMount() {
+        // keyboardWillShow is not available in Android
+        // keyboardWillHide is not available in Android
+
         const name = Platform.OS === 'ios' ? 'Will' : 'Did';
         this.keyboardDidShowListener = Keyboard.addListener(
             `keyboard${name}Show`,
