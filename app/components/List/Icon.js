@@ -1,3 +1,3 @@
 const Icon = () => null;
 
-export Icon;
+export default Icon;

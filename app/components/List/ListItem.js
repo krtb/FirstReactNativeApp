@@ -1,3 +1,3 @@
-const Separator = () => null;
+const ListItem = () => null;
 
-export Separator;
+export default ListItem;

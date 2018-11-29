@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, FlatList, View, StatusBar } from 'react-native';
 
+import { ListItem } from '../components/List';
 import currencies from '../data/currencies';
 
 const CurrencyList = () => (
@@ -8,7 +9,7 @@ const CurrencyList = () => (
     <StatusBar translucent={false} barStyle="default" />
     <FlatList
         data={currencies}
-        renderItem={({item})=> <Text> {item} </Text> }
+        renderItem={({item})=> <ListItem/> }
         keyExtractor={ item => item }
     />
     </View>

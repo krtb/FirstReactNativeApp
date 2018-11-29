@@ -1,3 +1,3 @@
 const Separator = () => null;
 
-export Separator;
+export default Separator;
