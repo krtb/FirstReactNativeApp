@@ -18,11 +18,11 @@ class CurrencyList extends Component {
     <StatusBar translucent={false} barStyle="default" />
     <FlatList
         data={currencies}
-        renderItem={({item})=> <ListItem
+        renderItem={({item})=>( <ListItem
             text={item}
             selected={item === TEMP_CURRENT_CURRENCY}
             onPress={this.handlePress}
-        /> }
+        /> )}
         keyExtractor={ item => item }
     />
     </View>
