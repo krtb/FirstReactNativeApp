@@ -16,6 +16,15 @@ class Options extends Component {
         return (
             <ScrollView>
                 <StatusBar translucent={false} barStyle="default" /> 
+                <ListItem
+                    text="themes"
+                    onPress={this.handleThemesPress}
+                />
+                <Separator/>
+                <ListItem
+                    text="Fixer.io"
+                    onPress={this.handleSitePress}
+                />
             </ScrollView>
         );
     }
