@@ -13,7 +13,7 @@ class Options extends Component {
     };
 
     handlePressSite = () => {
-        console.log('press site');
+        Linking.openURL('http://handlebarlabs.com').catch( ()=> alert( 'An error occurred.' ) )
     };
 
     render() {
