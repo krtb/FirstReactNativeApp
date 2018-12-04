@@ -6,6 +6,9 @@ import CurrencyList from '../screens/CurrencyList';
 export default StackNavigator({
     Home: {
         screen: Home,
+        navigationOptions: {
+            header: () => null,
+        }
     },
     CurrencyList: {
         screen: CurrencyList,
