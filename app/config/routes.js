@@ -1,4 +1,4 @@
-import { StackNavigator } from ' react-navivation ';
+import { StackNavigator } from 'react-navigation';
 
 import Home from '../screens/Home';
 import CurrencyList from '../screens/CurrencyList';
@@ -8,6 +8,6 @@ export default StackNavigator({
         screen: Home,
     },
     CurrencyList: {
-        screen: Home,
+        screen: CurrencyList,
     }, 
 });
