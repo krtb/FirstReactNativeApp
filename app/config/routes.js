@@ -22,6 +22,8 @@ const HomeStack = StackNavigator({
     Theme: {
         screen: Themes,
     },
+}, { 
+    headerMode: 'screen',
 });
 
 export default StackNavigator({
