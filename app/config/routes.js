@@ -12,6 +12,9 @@ export default StackNavigator({
     },
     CurrencyList: {
         screen: CurrencyList,
+        navigationOptions: ({navigation}) => ({
+            headerTitle: navigation.state.params.title,
+        }),
     }, 
 }, {
     mode: 'modal',
