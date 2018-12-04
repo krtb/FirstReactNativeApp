@@ -13,4 +13,6 @@ export default StackNavigator({
     CurrencyList: {
         screen: CurrencyList,
     }, 
+}, {
+    mode: 'modal',
 });

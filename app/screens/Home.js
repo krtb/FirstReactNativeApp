@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 // to use class component, need to import it from react
 import { StatusBar, KeyboardAvoidingView } from 'react-native'
 
@@ -19,12 +20,20 @@ const TEMP_CONVERSION_RATE =  0.7974;
 const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
+    static propTypes = {
+        navigation: PropTypes.object,
+    }
+
+    handleChangeText = () => {
+        console.log('change text')
+    }
+
     handlePressBaseCurrency = () => {
-        console.log('press base');
+        this.props.navigation.navigate('CurrencyList')
     }
 
     handlePressBaseQuoteCurrency = () => {
-        console.log('press quote');
+        this.props.navigation.navigate('CurrencyList')
     }
 
     handleTextChange = (text) => {
