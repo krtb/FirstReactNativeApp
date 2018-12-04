@@ -21,6 +21,9 @@ const HomeStack = StackNavigator({
     },
     Themes: {
         screen: Themes,
+        navigationOptions: {
+            headerTitle: 'Themes',
+        }
     },
 }, { 
     headerMode: 'screen',
