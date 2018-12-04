@@ -19,7 +19,7 @@ const HomeStack = StackNavigator({
             headerTitle: 'Options',
         }
     },
-    Theme: {
+    Themes: {
         screen: Themes,
     },
 }, { 
