@@ -13,9 +13,11 @@ export const swapCurrency = () => ({
 
 // passing in amount as part of the object creater, and will then return it as a second param 
 // this will then be passed to our reducer 
+
+// The parseFloat() function parses a string and returns a floating point number.
 export const changeCurrencyAmount = (amount) => ({
     type: CHANGE_CURRENCY_AMOUNT,
-    amount,
+    amount: parseFloat(amount),
 });
 
 
