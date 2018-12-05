@@ -21,7 +21,8 @@ class Options extends Component {
     };
 
     handlePressSite = () => {
-        Linking.openURL('http://handlebarlabs.com').catch( ()=> this.props.alertWithType('error', 'Sorry!', "The site can't be opened right now."));
+        Linking.openURL('http://handlebarlabs.com').catch( ()=> 
+        this.props.alertWithType('error', 'Sorry!', "The site can't be opened right now."));
     };
 
     render() {
