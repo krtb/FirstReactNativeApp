@@ -1,4 +1,4 @@
-import { CHANGE_CURRENCY_AMOUNT, SWAP_CURRENCY } from '../actions/reducers';
+import { CHANGE_CURRENCY_AMOUNT, SWAP_CURRENCY, swapCurrency, changeCurrencyAmount } from '../actions/currencies';
 // can use dif actio types in reducer, based off of which action type
 // which reducer function should we actually run.
 
@@ -16,5 +16,9 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 }
+
+console.log(initialState)
+console.log(reducer(initialState, swapCurrency()))
+console.log(reducer(initialState, changeCurrencyAmount('222')))
 
 export default reducer;
