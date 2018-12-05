@@ -8,7 +8,7 @@ const initialState = {};
 // as each action is called, they will go ahead and modify the state
 
 // switch statement on 'action.type' because each action going out will be unique 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
     switch(action.type){
         case CHANGE_CURRENCY_AMOUNT:
         case SWAP_CURRENCY:
