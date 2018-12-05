@@ -42,8 +42,10 @@ class Home extends Component {
          console.log('change text', text);
     }
 
+    // to pass action from app to redux store, done through dispatch/ this.props.dispatch
     handleSwapCurrency = () => {
-        console.log('press swap currency');
+        // TODO: make this work with this.props.dispatch 
+        console.log(swapCurrency());
     }
 
     handleOptionPress = () => {
