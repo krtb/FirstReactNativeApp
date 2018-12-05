@@ -17,4 +17,4 @@ EStyleSheet.build({
     $darkText: '#343434',
 });
 
-export default () => <Navigator />;
+export default () => <AlertProvider><Navigator/></AlertProvider>;
