@@ -12,7 +12,7 @@ import { ClearButton } from '../components/Buttons';
 import { LastConverted } from '../components/Text';
 import { Header } from '../components/Header'
 
-import { swapCurrency } from '../actions/currencies'
+import { swapCurrency, changeCurrencyAmount } from '../actions/currencies'
 
 const TEMP_BASE_CURRENCY = 'USD';
 const TEMP_QUOTE_CURRENCY = 'GBP';
@@ -26,8 +26,9 @@ class Home extends Component {
         navigation: PropTypes.object,
     }
 
-    handleChangeText = () => {
-        console.log('change text')
+    handleChangeText = (amount) => {
+        // TODO: make this work with this.props.dispatch 
+        console.log(changeCurrencyAmount(amount));
     }
 
     handlePressBaseCurrency = () => {
@@ -36,10 +37,6 @@ class Home extends Component {
 
     handlePressBaseQuoteCurrency = () => {
         this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' })
-    }
-
-    handleTextChange = (text) => {
-         console.log('change text', text);
     }
 
     // to pass action from app to redux store, done through dispatch/ this.props.dispatch
@@ -66,7 +63,7 @@ class Home extends Component {
                     onPress={this.handlePressBaseCurrency}
                     defaultValue={TEMP_BASE_PRICE}
                     keyboardType="numeric"
-                    onChangeText={this.handleTextChange}
+                    onChangeText={this.handleChangeText}
                 />
                 <InputWithButton
                     onPress={this.handlePressBaseQuoteCurrency}
