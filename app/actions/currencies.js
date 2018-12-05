@@ -17,3 +17,12 @@ export const changeCurrencyAmount = (amount) => ({
     type: CHANGE_CURRENCY_AMOUNT,
     amount,
 });
+
+
+// actions tell redux that something happened
+// doesn't tell redux what to do
+// redux and redux store what to save as a result of action?
+// this is the reducer's job
+// takes the payload from an action,takes it as an input
+// has access to redux store, modifies it based on the input
+// returns new state to be used in our application. 
