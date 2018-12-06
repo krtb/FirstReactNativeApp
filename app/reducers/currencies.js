@@ -30,6 +30,11 @@ const reducer = (state = initialState, action) => {
                 amount: action.amount || 0
             }
         case SWAP_CURRENCY:
+            return {
+                ...state,
+                baseCurrency: state.quoteCurrency,
+                quoteCurrency: state.baseCurrency,
+            }
         default:
             return state;
     }
