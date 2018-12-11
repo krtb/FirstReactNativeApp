@@ -19,6 +19,8 @@ EStyleSheet.build({
     $darkText: '#343434',
 });
 
+// provider is given to us by React-Redux
+// hook up to store, that was previously setup
 export default () => (
     <Provider store={store}>
         <AlertProvider>
