@@ -83,4 +83,18 @@ class Home extends Component {
     }
 }
 
-export default connect()(Home);
+// taking the redux state and mapping it to the component's props
+// anything that is returned in the below object
+// will be available to this component via "this.props"
+
+// mapping "initial state" from the currencies inside of our Reducers for State
+const mapStateToProps = (state) => {
+    const baseCurrency = state.currencies.baseCurrency;
+    const quoteCurrency = state.currencies.quoteCurrency;
+    return {
+        baseCurrency,
+        quoteCurrency,
+    };
+};
+
+export default connect(mapStateToProps)(Home);
