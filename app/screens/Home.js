@@ -12,8 +12,7 @@ import { Header } from '../components/Header';
 
 import { changeCurrencyAmount, swapCurrency } from '../actions/currencies';
 
-const TEMP_BASE_CURRENCY = 'USD';
-const TEMP_QUOTE_CURRENCY = 'GBP';
+
 const TEMP_BASE_PRICE = '100';
 const TEMP_QUOTE_PRICE = '79.74';
 const TEMP_LAST_CONVERTED = new Date();
@@ -23,6 +22,8 @@ class Home extends Component {
     static propTypes = {
         navigation: PropTypes.object,
         dispatch: PropTypes.func,
+        baseCurrency: PropTypes.string,
+        quoteCurrency: PropTypes.string,
     };
 
     handleChangeText = (text) => {
@@ -58,7 +59,7 @@ class Home extends Component {
                 <KeyboardAvoidingView behavior="padding">
                     <Logo />
                     <InputWithButton
-                        buttonText={TEMP_BASE_CURRENCY}
+                        buttonText={this.props.baseCurrency}
                         onPress={this.handlePressBaseCurrency}
                         defaultValue={TEMP_BASE_PRICE}
                         keyboardType="numeric"
@@ -66,14 +67,14 @@ class Home extends Component {
                     />
                     <InputWithButton
                         editable={false}
-                        buttonText={TEMP_QUOTE_CURRENCY}
+                        buttonText={this.props.quoteCurrency}
                         onPress={this.handlePressQuoteCurrency}
                         value={TEMP_QUOTE_PRICE}
                     />
                     <LastConverted
                         date={TEMP_LAST_CONVERTED}
-                        base={TEMP_BASE_CURRENCY}
-                        quote={TEMP_QUOTE_CURRENCY}
+                        base={this.props.baseCurrency}
+                        quote={this.props.quoteCurrency}
                         conversionRate={TEMP_CONVERSION_RATE}
                     />
                     <ClearButton onPress={this.handleSwapCurrency} text="Reverse Currencies" />
