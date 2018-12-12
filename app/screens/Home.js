@@ -12,8 +12,6 @@ import { Header } from '../components/Header';
 
 import { changeCurrencyAmount, swapCurrency } from '../actions/currencies';
 
-
-const TEMP_QUOTE_PRICE = '79.74';
 const TEMP_LAST_CONVERTED = new Date();
 const TEMP_CONVERSION_RATE = 0.79739;
 
@@ -24,6 +22,7 @@ class Home extends Component {
         baseCurrency: PropTypes.string,
         quoteCurrency: PropTypes.string,
         amount: PropTypes.number,
+        conversionRate: PropTypes.number,
     };
 
     handleChangeText = (text) => {
@@ -52,6 +51,8 @@ class Home extends Component {
     };
 
     render() {
+        let quotePrice = (this.props.amount * this.props.conversionRate).toFixed(2);
+
         return (
             <Container>
                 <StatusBar backgroundColor="blue" barStyle="light-content" />
@@ -69,7 +70,7 @@ class Home extends Component {
                         editable={false}
                         buttonText={this.props.quoteCurrency}
                         onPress={this.handlePressQuoteCurrency}
-                        value={TEMP_QUOTE_PRICE}
+                        value={quotePrice}
                     />
                     <LastConverted
                         date={TEMP_LAST_CONVERTED}
