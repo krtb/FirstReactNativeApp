@@ -52,6 +52,9 @@ class Home extends Component {
 
     render() {
         let quotePrice = (this.props.amount * this.props.conversionRate).toFixed(2);
+        if (this.props.isFetching) {
+            quotePrice = '...';
+        }
 
         return (
             <Container>

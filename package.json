@@ -4,11 +4,11 @@
   "private": true,
   "devDependencies": {
     "babel-eslint": "^8.0.2",
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.5.3",
     "prettier-eslint": "^8.2.2",
     "react-native-scripts": "1.14.0"
