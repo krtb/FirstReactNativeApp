@@ -15,7 +15,6 @@ import { Header } from '../components/Header';
 import { changeCurrencyAmount, swapCurrency } from '../actions/currencies';
 
 const TEMP_LAST_CONVERTED = new Date();
-const TEMP_CONVERSION_RATE = 0.79739;
 
 class Home extends Component {
     static propTypes = {
@@ -26,6 +25,7 @@ class Home extends Component {
         amount: PropTypes.number,
         conversionRate: PropTypes.number,
         isFetching: PropTypes.bool,
+        lastConvertedDate: PropTypes.object,
     };
 
     handleChangeText = (text) => {
@@ -79,7 +79,7 @@ class Home extends Component {
                         value={quotePrice}
                     />
                     <LastConverted
-                        date={TEMP_LAST_CONVERTED}
+                        date={this.props.lastConvertedDate}
                         base={this.props.baseCurrency}
                         quote={this.props.quoteCurrency}
                         conversionRate={this.props.conversionRate}
@@ -107,6 +107,7 @@ const mapStateToProps = (state) => {
         amount: state.currencies.amount,
         conversionRate: rates[quoteCurrency] || 0,
         isFetching: conversionSelector.isFetching,
+        lastConvertedDate: conversionSelector.date ? new Date(conversionSelector.date) : new Date(),
     };
 };
 
