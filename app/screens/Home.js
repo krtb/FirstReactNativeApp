@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable indent */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { StatusBar, KeyboardAvoidingView } from 'react-native';
@@ -23,6 +25,7 @@ class Home extends Component {
         quoteCurrency: PropTypes.string,
         amount: PropTypes.number,
         conversionRate: PropTypes.number,
+        isFetching: PropTypes.bool,
     };
 
     handleChangeText = (text) => {
@@ -54,7 +57,7 @@ class Home extends Component {
         let quotePrice = (this.props.amount * this.props.conversionRate).toFixed(2);
         if (this.props.isFetching) {
             quotePrice = '...';
-        }
+        };
 
         return (
             <Container>
@@ -103,6 +106,7 @@ const mapStateToProps = (state) => {
         quoteCurrency,
         amount: state.currencies.amount,
         conversionRate: rates[quoteCurrency] || 0,
+        isFetching: conversionSelector.isFetching,
     };
 };
 
