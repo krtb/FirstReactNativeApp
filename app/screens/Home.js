@@ -13,7 +13,6 @@ import { Header } from '../components/Header';
 import { changeCurrencyAmount, swapCurrency } from '../actions/currencies';
 
 
-const TEMP_BASE_PRICE = '100';
 const TEMP_QUOTE_PRICE = '79.74';
 const TEMP_LAST_CONVERTED = new Date();
 const TEMP_CONVERSION_RATE = 0.79739;
@@ -24,6 +23,7 @@ class Home extends Component {
         dispatch: PropTypes.func,
         baseCurrency: PropTypes.string,
         quoteCurrency: PropTypes.string,
+        amount: PropTypes.number,
     };
 
     handleChangeText = (text) => {
@@ -61,7 +61,7 @@ class Home extends Component {
                     <InputWithButton
                         buttonText={this.props.baseCurrency}
                         onPress={this.handlePressBaseCurrency}
-                        defaultValue={TEMP_BASE_PRICE}
+                        defaultValue={this.props.amount.toString()}
                         keyboardType="numeric"
                         onChangeText={this.handleChangeText}
                     />
@@ -95,6 +95,7 @@ const mapStateToProps = (state) => {
     return {
         baseCurrency,
         quoteCurrency,
+        amount: state.currencies.amount,
     };
 };
 
