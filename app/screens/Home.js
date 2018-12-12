@@ -82,7 +82,7 @@ class Home extends Component {
                         date={TEMP_LAST_CONVERTED}
                         base={this.props.baseCurrency}
                         quote={this.props.quoteCurrency}
-                        conversionRate={TEMP_CONVERSION_RATE}
+                        conversionRate={this.props.conversionRate}
                     />
                     <ClearButton onPress={this.handleSwapCurrency} text="Reverse Currencies" />
                 </KeyboardAvoidingView>
