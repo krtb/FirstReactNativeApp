@@ -92,10 +92,13 @@ class Home extends Component {
 const mapStateToProps = (state) => {
     const baseCurrency = state.currencies.baseCurrency;
     const quoteCurrency = state.currencies.quoteCurrency;
+    const conversionSelector = state.currencies.conversions[baseCurrency] || {};
+    const rates = conversionSelector.rates || {};
     return {
         baseCurrency,
         quoteCurrency,
         amount: state.currencies.amount,
+        conversionRate: rates[quoteCurrency] || 0,
     };
 };
 
