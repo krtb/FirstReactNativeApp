@@ -15,6 +15,8 @@ class CurrencyList extends Component {
     static propTypes = {
         navigation: PropTypes.object,
         dispatch: PropTypes.func,
+        baseCurrency: PropTypes.string,
+        quoteCurrency: PropTypes.string,
     }
 
     // need to make the 'currency' variable available, pass it in to your function
@@ -54,4 +56,12 @@ class CurrencyList extends Component {
     }
 };
 
-export default connect()(CurrencyList);
+const mapStateToProps = (state) => {
+    return{
+        baseCurrency: state.currencies.baseCurrency,
+        quoteCurrency: state.currencies.quoteCurrency
+    }
+}
+
+// want to pass 'mapStateToProps' as the first arg to below connect function
+export default connect(mapStateToProps)(CurrencyList);
