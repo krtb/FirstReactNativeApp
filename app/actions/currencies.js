@@ -4,8 +4,11 @@
 // action will then be used in reducer
 // will determine how the store will
 
+// TASK: ask why these have to be exported?
 export const SWAP_CURRENCY = 'swap_currency';
 export const CHANGE_CURRENCY_AMOUNT = 'change_currency_amount';
+export const CHANGE_BASE_CURRENCY = 'CHANGE_BASE_CURRENCY';
+export const CHANGE_QUOTE_CURRENCY = 'CHANGE_QUOTE_CURRENCY';
 
 export const swapCurrency = () => ({
     type: SWAP_CURRENCY,
@@ -18,6 +21,21 @@ export const swapCurrency = () => ({
 export const changeCurrencyAmount = (amount) => ({
     type: CHANGE_CURRENCY_AMOUNT,
     amount: parseFloat(amount),
+});
+
+// what do we want to know? Want to know the currency, so will 
+// pass that in as a parameter
+export const changeBaseCurrency = (currency) => ({
+    type: CHANGE_BASE_CURRENCY,
+    // want to make sure that we actually pass on that currency to the reducer,
+    // so that it knows what currency should now be the currency
+    // will pass that as part of the PAYLOAD
+    currency,
+});
+
+export const changeQuoteCurrency = (currency) => ({
+    type: CHANGE_QUOTE_CURRENCY,
+    currency,
 });
 
 
