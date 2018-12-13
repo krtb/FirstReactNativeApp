@@ -60,19 +60,23 @@ const initialState = {
 // helper function to set nested data, to be reused later on
 const setConversions = (state, action) => {
     let conversion = {
+        // when we are fetching, will change base currency
+        // below are the same property values as in the initial state object above
         isFetching: true,
         date: '',
         rates: {},
     }
 
     // if we don't have the below info, will default to above's basic-static info
-    // checking object in our existing state
+    // checking object in our existing/initial state
     if (state.conversions[action.currency]) {
         // will copy over the information that's already there
         conversion = state.conversions[action.currency]
+        // copy what's already there, and if else, will default to basic static information in coversion object
     }
     return {
         // using destructuring to copy over all existing information
+        // don't want to override any existing user information
         ...state.conversions,
         // update what the current new base currency is
         // is going to be whatever we have setup in our conversion variable
@@ -92,7 +96,11 @@ const setConversions = (state, action) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_CURRENCY_AMOUNT:
-      return { ...state, amount: action.amount || 0 };
+    // returning new objects because this needs to be a pure function
+      return { 
+        ...state, 
+        amount: action.amount || 0 
+    };
     case SWAP_CURRENCY:
       return {
         ...state,
@@ -102,6 +110,7 @@ export default (state = initialState, action) => {
     case CHANGE_BASE_CURRENCY:
       return {
         ...state,
+        // passing currency as an additional payload 
         baseCurrency: action.currency,
         conversions: setConversions(state, action),
       };
