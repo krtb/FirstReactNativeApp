@@ -37,6 +37,11 @@ class CurrencyList extends Component {
     };
 
     render() {
+        // driving our currency selection based off our currency selection
+        let comparisonCurrency = this.props.baseCurrency;
+        if (this.props.navigation.state.params.type === 'quote') {
+            comparisonCurrency = this.props.quoteCurrency;
+        }
         return(
     <View style={{ flex: 1 }} >
     <StatusBar translucent={false} barStyle="default" />
@@ -44,7 +49,7 @@ class CurrencyList extends Component {
         data={currencies}
         renderItem={({item})=>( <ListItem
             text={item}
-            selected={item === TEMP_CURRENT_CURRENCY}
+            selected={item === comparisonCurrency}
             // item being passed in is the currency that is changing
             onPress={() => this.handlePress(item)}
         /> )}
