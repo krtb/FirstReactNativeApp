@@ -1,4 +1,4 @@
-import { CHANGE_CURRENCY_AMOUNT, SWAP_CURRENCY} from '../actions/currencies';
+import { CHANGE_CURRENCY_AMOUNT, SWAP_CURRENCY, CHANGE_BASE_CURRENCY, CHANGE_QUOTE_CURRENCY} from '../actions/currencies';
 // can use dif actio types in reducer, based off of which action type
 // which reducer function should we actually run.
 
@@ -16,6 +16,7 @@ const initialState = {
     amount: 100,
     conversions: {
         USD: {
+            // set to true to grab the latest rates
             isFetching: false,
             base: 'USD',
             date: '2017-05-31',
@@ -56,6 +57,29 @@ const initialState = {
     },
 };
 
+// helper function to set nested data, to be reused later on
+const setConversions = (state, action) => {
+    let conversion = {
+        isFetching: true,
+        date: '',
+        rates: {},
+    }
+
+    // if we don't have the below info, will default to above's basic-static info
+    // checking object in our existing state
+    if (state.conversions[action.currency]) {
+        // will copy over the information that's already there
+        conversion = state.conversions[action.currency]
+    }
+    return {
+        // using destructuring to copy over all existing information
+        ...state.conversions,
+        // update what the current new base currency is
+        // is going to be whatever we have setup in our conversion variable
+        [action.currency]: conversion
+    }
+};
+
 // after each subsequent action it called, it will have the most recent state 
 // as each action is called, they will go ahead and modify the state
 
@@ -65,22 +89,29 @@ const initialState = {
 // ...() before code is use of DESTRUCTURING, creates a copy of state below
 // at start of switch statement, action.type grabs the particular type
 // we then reach inside of the object, with action.amount
-const reducer = (state = initialState, action) => {
-    switch(action.type){
-        case CHANGE_CURRENCY_AMOUNT:
-            return {
-                ...state,
-                amount: action.amount || 0
-            }
-        case SWAP_CURRENCY:
-            return {
-                ...state,
-                baseCurrency: state.quoteCurrency,
-                quoteCurrency: state.baseCurrency,
-            }
-        default:
-            return state;
-    }
-}
-
-export default reducer;
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case CHANGE_CURRENCY_AMOUNT:
+      return { ...state, amount: action.amount || 0 };
+    case SWAP_CURRENCY:
+      return {
+        ...state,
+        baseCurrency: state.quoteCurrency,
+        quoteCurrency: state.baseCurrency,
+      };
+    case CHANGE_BASE_CURRENCY:
+      return {
+        ...state,
+        baseCurrency: action.currency,
+        conversions: setConversions(state, action),
+      };
+    case CHANGE_QUOTE_CURRENCY:
+      return {
+        ...state,
+        quoteCurrency: action.currency,
+        conversions: setConversions(state, action),
+      };
+    default:
+      return state;
+  }
+};
