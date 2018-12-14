@@ -17,6 +17,7 @@ class CurrencyList extends Component {
         dispatch: PropTypes.func,
         baseCurrency: PropTypes.string,
         quoteCurrency: PropTypes.string,
+        primaryColor: PropTypes.string,
     }
 
     // need to make the 'currency' variable available, pass it in to your function
@@ -52,6 +53,8 @@ class CurrencyList extends Component {
             selected={item === comparisonCurrency}
             // item being passed in is the currency that is changing
             onPress={() => this.handlePress(item)}
+            // this property allows us to be able to change the theme color
+            iconBackground={this.props.primaryColor}
         /> )}
         keyExtractor={ item => item }
         ItemSeparatorComponent={Separator}
@@ -64,7 +67,8 @@ class CurrencyList extends Component {
 const mapStateToProps = (state) => {
     return{
         baseCurrency: state.currencies.baseCurrency,
-        quoteCurrency: state.currencies.quoteCurrency
+        quoteCurrency: state.currencies.quoteCurrency,
+        primaryColor: state.theme.primaryColor,
     }
 }
 
