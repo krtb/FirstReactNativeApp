@@ -1,20 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'; // ES6
 // may need to npm install above, not included in latest
-import { View, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { View} from 'react-native'
 
 import styles from './styles'
 
-const Container = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss() } >
-        <View style={styles.container}>
+const Container = ({ children, backgroundColor }) => {
+    const containerStyles = [styles.container];
+
+    if (backgroundColor) {
+        containerStyles.push({ backgroundColor })
+    }
+
+    return(
+        <View style={containerStyles}>
             {children}
         </View>
-    </TouchableWithoutFeedback>
-);
+    );
+};
 
 Container.propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
+    backgroundColor: PropTypes.string,
 };
 
 export default Container;
